@@ -5,7 +5,7 @@
 #include <iostream>
 
 
-class contacts
+class contact
 {
     std::string info[4];
     public:
@@ -22,9 +22,9 @@ class contacts
 
 class phonebook
 {
-    contacts contacts[8];
+    contact contacts[8];
     public:
-        char index {0};    
+        int index ;    
 
         void add();
         void search();
