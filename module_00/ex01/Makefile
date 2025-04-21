@@ -1,5 +1,5 @@
 # Program name
-NAME = megaphone
+NAME = phonebook
 
 # C++ compiler with all flags
 CXX = c++
@@ -7,7 +7,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Directories
 OBJ_DIR = objects
-SRC_DIR = .
+SRC_DIR = source
 
 #include
 INC= -I includes
@@ -35,7 +35,7 @@ $(NAME): $(OBJ)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 		@mkdir -p $(OBJ_DIR)
-		@$(CXX) $(CXXFLAGS) -c $< -o $@
+		@$(CXX) $(INC) $(CXXFLAGS) -c $< -o $@
 
 clean:
 		@rm -rf $(OBJ_DIR)

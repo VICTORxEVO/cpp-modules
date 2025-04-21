@@ -1,31 +1,31 @@
 #include "phonebook.hpp"
 
-void contacts::WriteFirstName(std::string str)
+void contact::WriteFirstName(std::string str)
 {
     this->info[0] = str;
 }
 
-void contacts::WriteLastName(std::string str)
+void contact::WriteLastName(std::string str)
 {
     this->info[1] = str;
 }
 
-void contacts::WriteNickName(std::string str)
+void contact::WriteNickName(std::string str)
 {
     this->info[2] = str;
 }
 
-std::string contacts::GetFirstName(void) const
+std::string contact::GetFirstName(void) const
 {
     return this->info[0];
 }
 
-std::string contacts::GetLastName(void) const
+std::string contact::GetLastName(void) const
 {
     return this->info[1];
 }
 
-std::string contacts::GetNickName(void) const
+std::string contact::GetNickName(void) const
 {
     return this->info[2];
 }
