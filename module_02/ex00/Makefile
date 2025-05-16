@@ -1,5 +1,5 @@
 # Program name
-NAME =  fixed
+NAME = fixed
 
 # C++ compiler with all flags
 CXX = c++

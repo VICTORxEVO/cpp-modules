@@ -3,8 +3,16 @@
 
 Fixed::Fixed(void)
 {
-    std::cout << "Default constructor called" << std::endl;
-    this->rawBits = 0;
+    return ;
+}
+
+Fixed::Fixed(const int num)
+{
+    this->setRawBits(num * 256);
+}
+Fixed::Fixed(const float num)
+{
+    this->setRawBits(roundf(num * 256));
 }
 
 Fixed::Fixed(const Fixed &data)
@@ -30,6 +38,18 @@ int Fixed::getRawBits(void) const
     return (this->rawBits); 
 }
 
+float Fixed::toFloat(void) const
+{
+    float res = static_cast<float>(this->rawBits) / 256;
+    return (res);
+}
+
+int Fixed::toInt(void) const
+{
+    int res = this->rawBits / 256;
+    return (res);
+}
+
 Fixed & Fixed::operator=(const Fixed& other) 
 {
     std::cout << "Assignation operator called" << std::endl;
@@ -38,4 +58,11 @@ Fixed & Fixed::operator=(const Fixed& other)
         this->rawBits = other.getRawBits();
     }
     return (*this);
+}
+
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
+{
+    os << fixed.toFloat();
+    return os;
 }
