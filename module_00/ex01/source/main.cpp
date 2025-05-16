@@ -7,7 +7,7 @@ int main(void)
     phonebook phonebook;
     std::string command;
 
-        phonebook.index = 0;
+    phonebook.index = 0;
     while (true)
     {
         std::cout << "Enter command (ADD, SEARCH, EXIT): ";
