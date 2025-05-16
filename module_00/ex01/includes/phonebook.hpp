@@ -28,7 +28,6 @@ class phonebook
 
         void add();
         void search();
-        void display();
 };
 
 
