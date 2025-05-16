@@ -12,7 +12,7 @@ private:
 
 public:
     Zombie(std::string name);
-    ~Zombie(); // Assuming this is the destructor
+    ~Zombie();
 
     void announce( void );
  
