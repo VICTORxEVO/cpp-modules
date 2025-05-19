@@ -11,8 +11,13 @@ int main(void)
     while (true)
     {
         std::cout << "Enter command (ADD, SEARCH, EXIT): ";
-        std::cin >> command;
-
+        std::getline(std::cin, command);
+        if (std::cin.eof())
+            return (1);
+        if (command.empty())
+            continue;
+        if (command.find_first_not_of(' ') == std::string::npos)
+            continue;
         if (command == "ADD")
             phonebook.add();
         else if (command == "SEARCH")
