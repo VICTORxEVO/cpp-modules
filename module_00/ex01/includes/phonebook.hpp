@@ -3,19 +3,23 @@
 
 #include <string>
 #include <iostream>
-
+#include <cstdlib>
 
 class contact
 {
-    std::string info[4];
+    private:
+        std::string info[6];
     public:
-        void WriteFirstName(std::string str);
-        void WriteLastName(std::string str);
-        void WriteNickName(std::string str);
+        void SetFirstName(std::string str);
+        void SetLastName(std::string str);
+        void SetNickName(std::string str);
+        void SetPhoneNum(std::string str);
+        void SetSecret(std::string str);
         std::string GetFirstName() const;
         std::string GetLastName() const;
         std::string GetNickName() const;
-
+        std::string GetPhoneNum() const;
+        std::string GetSecret() const;
 };
 
 
