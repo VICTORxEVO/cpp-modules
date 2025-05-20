@@ -4,29 +4,30 @@
 
 void phonebook::add(void)
 {
-    std::string first_name;
-    std::string str;
+    std::string fname, lname, nname, pn, secret;
 
     std::cout << "Enter First name" << std::endl;
-    std::getline(std::cin, first_name);
-    this->contacts[this->index].SetFirstName(first_name);
-
-    std::cout << "Enter " << first_name << "'s Last name" << std::endl;
-    std::getline(std::cin, str);
-    this->contacts[this->index].SetLastName(str);
-
-    std::cout << "Enter " << first_name << "'s Nick name" << std::endl;
-    std::getline(std::cin, str);
-    this->contacts[this->index].SetNickName(str);
-
-    std::cout << "Enter " << first_name << "'s phone number" << std::endl;
-    std::getline(std::cin, str);
-    this->contacts[this->index].SetPhoneNum(str);
-
-    std::cout << "Enter " << first_name << "'s darkest secret" << std::endl;
-    std::getline(std::cin, str);
-    this->contacts[this->index].SetSecret(str);
-
+    std::getline(std::cin, fname);
+    std::cout << "Enter " << fname << "'s Last name" << std::endl;
+    std::getline(std::cin, lname);
+    std::cout << "Enter " << fname << "'s Nick name" << std::endl;
+    std::getline(std::cin, nname);
+    std::cout << "Enter " << fname << "'s phone number" << std::endl;
+    std::getline(std::cin, pn);
+    std::cout << "Enter " << fname << "'s darkest secret" << std::endl;
+    std::getline(std::cin, secret);
+    if (std::cin.eof())
+        return ;
+    if (fname.empty() || lname.empty() || nname.empty() || pn.empty() || secret.empty())
+    {
+        std::cout << "All fields are required!" << std::endl;
+        return ;
+    }
+    this->contacts[this->index].SetFirstName(fname);
+    this->contacts[this->index].SetLastName(lname);
+    this->contacts[this->index].SetNickName(nname);
+    this->contacts[this->index].SetPhoneNum(pn);
+    this->contacts[this->index].SetSecret(secret);
 
     this->index++;
     if (this->index == 8)
@@ -75,9 +76,9 @@ void phonebook::search(void)
     phonenum = contacts[index].GetPhoneNum();
     secret = contacts[index].GetSecret();
     
-    std::cout  << (firstname.length() > 10 ? firstname.substr(0, 10) + "." : firstname) << std::endl;
-    std::cout << (lastname.length() > 10 ? lastname.substr(0, 10) + "." : lastname) << std::endl;
-    std::cout << (nickname.length() > 10 ? nickname.substr(0, 10) + "." : nickname) << std::endl;
-    std::cout << (phonenum.length() > 10 ? phonenum.substr(0, 10) + "." : phonenum) << std::endl;
-    std::cout << (secret.length() > 10 ? secret.substr(0, 10) + "." : secret) << std::endl;
+    std::cout << "First name    :"<< (firstname.length() > 10 ? firstname.substr(0, 10) + "." : firstname) << std::endl;
+    std::cout << "Last name     :" << (lastname.length() > 10 ? lastname.substr(0, 10) + "." : lastname) << std::endl;
+    std::cout << "nick name     :" << (nickname.length() > 10 ? nickname.substr(0, 10) + "." : nickname) << std::endl;
+    std::cout << "phone number  :" << (phonenum.length() > 10 ? phonenum.substr(0, 10) + "." : phonenum) << std::endl;
+    std::cout << "darkest secret:" << (secret.length() > 10 ? secret.substr(0, 10) + "." : secret) << std::endl;
 }
