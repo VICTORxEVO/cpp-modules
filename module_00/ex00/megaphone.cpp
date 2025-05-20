@@ -17,7 +17,7 @@ int main(int ac, char *av[])
         while (av[i][++j])
         {
             if (av[i][j] >= 'a' && av[i][j] <= 'z')
-                std::cout << (char)std::toupper(static_cast<unsigned char>(av[i][j]));
+                std::cout << (char)std::toupper((av[i][j]));
             else
                 std::cout << av[i][j];
         }
