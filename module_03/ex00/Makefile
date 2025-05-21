@@ -1,5 +1,5 @@
 # Program name
-NAME =  fixed
+NAME =  ClapTrap
 
 # C++ compiler with all flags
 CXX = c++
