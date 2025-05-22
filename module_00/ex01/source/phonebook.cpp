@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 19:04:17 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2025/05/20 19:04:18 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2025/05/22 10:43:13 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void phonebook::add(void)
 
     std::cout << "Enter First name" << std::endl;
     std::getline(std::cin, fname);
+    if (fname.empty())
+        fname = "Nothing";
     std::cout << "Enter " << fname << "'s Last name" << std::endl;
     std::getline(std::cin, lname);
     std::cout << "Enter " << fname << "'s Nick name" << std::endl;
@@ -92,9 +94,9 @@ void phonebook::search(void)
     phonenum = contacts[index].GetPhoneNum();
     secret = contacts[index].GetSecret();
     
-    std::cout << "First name    :" << firstname << std::endl;
-    std::cout << "Last name     :" << lastname << std::endl;
-    std::cout << "nickname      :" << nickname << std::endl;
-    std::cout << "phone number  :" << phonenum << std::endl;
-    std::cout << "darkest secret:" << secret << std::endl;
+    std::cout << "First name    : " << firstname << std::endl;
+    std::cout << "Last name     : " << lastname << std::endl;
+    std::cout << "nickname      : " << nickname << std::endl;
+    std::cout << "phone number  : " << phonenum << std::endl;
+    std::cout << "darkest secret: " << secret << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 19:04:22 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2025/05/20 19:04:23 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2025/05/22 10:28:06 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void contact::SetPhoneNum(std::string str)
 
 void contact::SetSecret(std::string str)
 {
-    this->info[5] = str;
+    this->info[4] = str;
 }
 
 void contact::SetFirstName(std::string str)
@@ -59,5 +59,5 @@ std::string contact::GetPhoneNum() const
 
 std::string contact::GetSecret() const
 {
-    return (this->info[5]);
+    return (this->info[4]);
 }

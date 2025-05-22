@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 19:04:30 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2025/05/22 10:25:10 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2025/05/22 10:44:02 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ class contact
 
 class phonebook
 {
-    contact contacts[8];
+    private:
+        contact contacts[8];
     public:
         int index ;    
 
