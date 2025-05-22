@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 19:04:30 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2025/05/20 19:04:31 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2025/05/22 10:25:10 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class contact
 {
     private:
-        std::string info[6];
+        std::string info[5];
     public:
         void SetFirstName(std::string str);
         void SetLastName(std::string str);
