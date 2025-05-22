@@ -6,7 +6,7 @@
 /*   By: ysbai-jo <ysbai-jo@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 19:04:17 by ysbai-jo          #+#    #+#             */
-/*   Updated: 2025/05/22 10:43:13 by ysbai-jo         ###   ########.fr       */
+/*   Updated: 2025/05/22 10:55:22 by ysbai-jo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,19 @@ void phonebook::search(void)
 
     std::cout << "Enter contact's index" << std::endl;
     std::getline(std::cin, idx);
-        for (size_t j = 0; j < idx.length(); ++j)
+    if (idx.empty())
+    {
+        std::cerr << "you Must choose a contact's index" << std::endl;
+        return ;
+    }
+    for (size_t j = 0; j < idx.length(); ++j)
+    {
+        if (!isdigit(idx.c_str()[j]))
         {
-            if (!isdigit(idx[j]))
-            {
-                std::cout << "index must be a number !" << std::endl;
-                return ;
-            }
+            std::cerr << "index must be a positive number !" << std::endl;
+            return ;
         }
+    }
     index = atoi(idx.c_str());
     if (index < 0 || index > 7)
     {
