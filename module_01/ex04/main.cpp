@@ -16,6 +16,8 @@ int main(int ac, char **av)
         return (std::cerr << "usage: <filename> <search> <replacement> !", 1);
     replacement_file = std::string(av[1]) + ".replace";
     to_search = av[2];
+    if (to_search.empty())
+        return (1);
     to_replace = av[3];
     std::ifstream origin_file(av[1]);
     if (!origin_file.is_open())
