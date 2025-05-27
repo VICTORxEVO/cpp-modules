@@ -1,5 +1,5 @@
 # Program name
-NAME =  harlFilter
+NAME =  area_triangle
 
 # C++ compiler with all flags
 CXX = c++
