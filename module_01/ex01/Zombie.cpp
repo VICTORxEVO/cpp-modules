@@ -1,5 +1,11 @@
 #include "Zombie.hpp"
 
+
+Zombie::Zombie(void)
+{
+    return;
+}
+
 Zombie::~Zombie(void)
 {
     std::cout << this->name << " -> destroyed"  << std::endl; 
