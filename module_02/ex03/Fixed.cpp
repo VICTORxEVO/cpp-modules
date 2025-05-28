@@ -89,7 +89,7 @@ Fixed Fixed::operator+(const Fixed & other) const
 {
     Fixed res;
     long tmp = (long)this->rawBits + (long)other.rawBits;
-    if (tmp > INT_MAX || tmp < INT_MAX)
+    if (tmp > INT_MAX || tmp < INT_MIN)
         std::cerr << "Warning: overflow in addition" << std::endl;
     res.setRawBits((int)tmp);
     return (res);
