@@ -6,8 +6,6 @@ Fixed area(const Point &a, const Point &b, const Point &c)
                  b.getX() * (c.getY() - a.getY()) +
                  c.getX() * (a.getY() - b.getY())) / 2;
 
-    // Fixed area = ((b.getX() - a.getX()) * (c.getY() - a.getY()) -
-    //              (c.getX() - a.getX()) * (b.getY() - a.getY())) / 2;
     return (area < 0) ? area * -1 : area;
 }
 
