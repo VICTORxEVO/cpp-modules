@@ -6,24 +6,25 @@
 
 
 
-class Fixed {
+class Fixed
+{
 
-private:
+    private:
     int rawBits;
     static const int fracBits;
-
-public:
+    
+    public:
     Fixed();
     Fixed(const int nbr);
     Fixed(const float nbr);
     ~Fixed();
-
+    
     // copy constructor
     Fixed(const Fixed & other);
     
     //copy assignment constructor 
     Fixed & operator=(const Fixed & other);
-
+    
     // comparison operators 
     bool operator>(const Fixed& other) const;
     bool operator<(const Fixed& other) const;
@@ -31,13 +32,13 @@ public:
     bool operator<=(const Fixed& other) const;
     bool operator==(const Fixed& other) const;
     bool operator!=(const Fixed& other) const; 
-
+    
     // arithmetic operators  +, -, *, / 
     Fixed operator+(const Fixed & other) const;
     Fixed operator-(const Fixed & other) const;
     Fixed operator*(const Fixed & other) const;
     Fixed operator/(const Fixed & other) const;
-
+    
     //  increment and decrement operators
     // Post-increment  x++
     Fixed operator++(int);
@@ -45,13 +46,13 @@ public:
     // Pre-increment  ++x
     Fixed operator++();
     Fixed operator--();
-
+    
     // Friend function for stream output
     friend std::ostream & operator<<(std::ostream & o, Fixed const & obj);
     // Min functions (non-const and const versions)
     static Fixed& min(Fixed& a, Fixed& b);
     static const Fixed& min(const Fixed& a, const Fixed& b);
- 
+    
     // Max functions (non-const and const versions)
     static Fixed& max(Fixed& a, Fixed& b);
     static const Fixed& max(const Fixed& a, const Fixed& b);
@@ -60,4 +61,25 @@ public:
     int toInt( void ) const;
     int getRawBits( void ) const;
     void setRawBits( int const raw );
+};
+class Point
+{
+    private:
+        const Fixed x;
+        const Fixed y;
+    public:
+        Point() : x(0), y(0) {};
+        Point(const float x, const float y) : x(x), y(y) {};
+        Point(const Point &other) : x(other.x), y(other.y) {};
+        ~Point() {};
+
+        Point& operator=(const Point& other)
+        {
+            (void) other;
+            return (*this);
+        };
+
+        Fixed getX() const {return x;};
+        Fixed getY() const {return y;};
+        
 };
