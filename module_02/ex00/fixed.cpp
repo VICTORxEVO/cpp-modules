@@ -15,6 +15,7 @@ Fixed::Fixed(const Fixed &data)
 
 Fixed::~Fixed(void)
 {
+    std::cout << "Destructor called" << std::endl;
     return ;
 }
 
