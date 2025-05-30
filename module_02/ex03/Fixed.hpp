@@ -47,8 +47,6 @@ class Fixed
     Fixed operator++();
     Fixed operator--();
     
-    // Friend function for stream output
-    friend std::ostream & operator<<(std::ostream & o, Fixed const & obj);
     // Min functions (non-const and const versions)
     static Fixed& min(Fixed& a, Fixed& b);
     static const Fixed& min(const Fixed& a, const Fixed& b);
@@ -62,24 +60,5 @@ class Fixed
     int getRawBits( void ) const;
     void setRawBits( int const raw );
 };
-class Point
-{
-    private:
-        const Fixed x;
-        const Fixed y;
-    public:
-        Point() : x(0), y(0) {};
-        Point(const float x, const float y) : x(x), y(y) {};
-        Point(const Point &other) : x(other.x), y(other.y) {};
-        ~Point() {};
 
-        Point& operator=(const Point& other)
-        {
-            (void) other;
-            return (*this);
-        };
-
-        Fixed getX() const {return x;};
-        Fixed getY() const {return y;};
-        
-};
+std::ostream & operator<<(std::ostream & o, Fixed const & obj);

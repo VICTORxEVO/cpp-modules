@@ -49,8 +49,6 @@ public:
     Fixed operator++();
     Fixed operator--();
 
-    // Friend function for stream output
-    friend std::ostream & operator<<(std::ostream & o, Fixed const & obj);
     // Min functions (non-const and const versions)
     static Fixed& min(Fixed& a, Fixed& b);
     static const Fixed& min(const Fixed& a, const Fixed& b);
@@ -64,3 +62,5 @@ public:
     int getRawBits( void ) const;
     void setRawBits( int const raw );
 };
+
+std::ostream & operator<<(std::ostream & o, Fixed const & obj);
