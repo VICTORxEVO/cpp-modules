@@ -40,7 +40,7 @@ int Fixed::getRawBits(void) const
 
 float Fixed::toFloat(void) const
 {
-    float res = static_cast<float>(this->rawBits) / 256;
+    float res = (float)(this->rawBits) / 256;
     return (res);
 }
 
