@@ -21,10 +21,10 @@ int main(int ac, char **av)
     to_replace = av[3];
     std::ifstream origin_file(av[1]);
     if (!origin_file.is_open())
-        return (std::cerr << "error: failed to open " << av[1], 1);
+        return (std::cerr << "error: failed to open " << av[1] << std::endl, 1);
     std::ofstream dest_file(replacement_file.c_str());
     if (!dest_file.is_open())
-        return (std::cerr << "error: failed to open " << replacement_file, 1);
+        return (std::cerr << "error: failed to open " << replacement_file << std::endl, 1);
     while(std::getline(origin_file, line))
     {
         start = 0, pos = 0; // reset for new line
