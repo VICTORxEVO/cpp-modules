@@ -19,7 +19,7 @@ Fixed::Fixed(const float nbr)
 }
 Fixed::~Fixed()
 {
-
+    return ;
 }
 
 float Fixed::toFloat(void) const

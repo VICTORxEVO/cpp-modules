@@ -31,10 +31,10 @@ Point::~Point()
 
 Fixed Point::getX() const
 {
-    return x;
+    return (x);
 }
 
 Fixed Point::getY() const
 {
-    return y;
+    return (y);
 }
