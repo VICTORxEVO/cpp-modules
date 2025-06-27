@@ -10,6 +10,21 @@ FragTrap::FragTrap(const std::string &name) : ClapTrap(name)
               << attack_damage << " AD." << std::endl;
 }
 
+FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other)
+{
+    return ;
+}
+
+FragTrap & FragTrap::operator=(FragTrap &other)
+{
+    if (this != &other)
+    {
+        ClapTrap::operator=(other); // Assign base class members
+    }
+    std::cout << "FragTrap " << Name << " has been assigned!" << std::endl;
+    return *this;
+}
+
 FragTrap::~FragTrap()
 {
     std::cout << "FragTrap "<< Name << " has been destroyed !" << std::endl;

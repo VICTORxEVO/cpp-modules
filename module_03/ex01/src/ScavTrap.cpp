@@ -10,12 +10,12 @@ ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)
               << attack_damage << " AD." << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
+ScavTrap::ScavTrap(ScavTrap &other) : ClapTrap(other)
 {
     std::cout << "ScavTrap" << Name << "copy constructor called" << std::endl;
 }
 
-ScavTrap& ScavTrap::operator=(const ScavTrap &other)
+ScavTrap ScavTrap::operator=(ScavTrap &other)
 {
     if (this != &other)
         ClapTrap::operator=(other);  // Call base class assignment operator
