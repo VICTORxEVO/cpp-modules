@@ -7,7 +7,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Directories
 OBJ_DIR = objects
-SRC_DIR = .
+SRC_DIR = src
 
 #include
 INC= -I includes
