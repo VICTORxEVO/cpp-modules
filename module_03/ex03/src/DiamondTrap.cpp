@@ -38,3 +38,8 @@ void DiamondTrap::whoAmI()
 {
     std::cout << "I am DiamondTrap " << Name << " and ClapTrap " << ClapTrap::Name << std::endl;
 }
+
+void DiamondTrap::SetName(std::string Name) const
+{
+    this->Name = Name
+}

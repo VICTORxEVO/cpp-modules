@@ -1,6 +1,7 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
@@ -8,11 +9,13 @@ int main()
     ClapTrap mike("mike");
     ScavTrap jim("jim");
     FragTrap jax("jax");
+    DiamondTrap Diam("diam")
 
     bob.attack("minions");
     mike.attack("minions");
     jim.attack("minion");
     jax.attack("minion");
+    
 
     bob.takeDamage(3);
     jim.takeDamage(10);
