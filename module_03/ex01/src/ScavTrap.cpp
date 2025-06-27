@@ -9,6 +9,20 @@ ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)
               << hit_points << " HP, " << energy_points << " EP, and "
               << attack_damage << " AD." << std::endl;
 }
+
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
+{
+    std::cout << "ScavTrap" << Name << "copy constructor called" << std::endl;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap &other)
+{
+    if (this != &other)
+        ClapTrap::operator=(other);  // Call base class assignment operator
+    std::cout << "ScavTrap" << Name << "assignment operator called" << std::endl;
+    return *this;
+}
+
 ScavTrap::~ScavTrap()
 {
     std::cout << "ScavTrap " << Name << " has been destroyed!" << std::endl;
@@ -19,7 +33,6 @@ void ScavTrap::guardGate()
     std::cout << "ScavTrap " << Name
     << " has entered in Gate keeper mode." << std::endl;
 }
-
 
 void ScavTrap::attack(const std::string& target)
 {
