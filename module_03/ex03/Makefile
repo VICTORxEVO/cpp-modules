@@ -1,5 +1,5 @@
 # Program name
-NAME =  FragTrap
+NAME =  DiamondTrap
 
 # C++ compiler with all flags
 CXX = c++
