@@ -46,3 +46,8 @@ std::string DiamondTrap::GetName() const
 {
     return (this->Name);
 }
+
+void attack(const std::string& target)
+{
+    ScavTrap::attack;
+}
