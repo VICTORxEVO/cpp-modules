@@ -20,7 +20,7 @@ ClapTrap::~ClapTrap()
     std::cout << "ClapTrap "<< Name << " has been destroyed !" << std::endl;
 }
 
-ClapTrap & ClapTrap::operator=(ClapTrap &other)
+ClapTrap & ClapTrap::operator=(const ClapTrap &other)
 {
 
     if (this != &other)
