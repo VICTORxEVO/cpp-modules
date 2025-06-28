@@ -47,7 +47,7 @@ std::string DiamondTrap::GetName() const
     return (this->Name);
 }
 
-void attack(const std::string& target)
+void DiamondTrap::attack(const std::string& target)
 {
-    ScavTrap::attack;
+    ScavTrap::attack(target);
 }
