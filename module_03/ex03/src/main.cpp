@@ -28,4 +28,6 @@ int main()
     jim.beRepaired(5);
     jax.beRepaired(6);
     diam.beRepaired(10);
+
+    diam.whoAmI();
 }
