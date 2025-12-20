@@ -31,7 +31,6 @@ AForm	*Intern::makeForm(const std::string &name, const std::string &target) cons
 		if (name == names[i])
 		{
 			std::cout << "Intern creates " << name << std::endl;
-			/* delete the others */
 			for (int j = 0; j < 3; j++)
 				if (j != i)
 					delete forms[j];
@@ -41,7 +40,6 @@ AForm	*Intern::makeForm(const std::string &name, const std::string &target) cons
 
 	std::cout << "Intern can't create \"" << name << "\" (unknown form)" << std::endl;
 
-	/* delete everything if no match */
 	for (int i = 0; i < 3; i++)
 		delete forms[i];
 
