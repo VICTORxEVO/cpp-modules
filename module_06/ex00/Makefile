@@ -29,7 +29,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 		@$(CXX)  $(INC) $(CXXFLAGS) $(OBJ) -o $@
-		@echo "compiling"
+		@echo "compiling using $(CXXFLAGS)"
 		@sleep 0.5
 		@echo "$(NAME) is ready"
 
