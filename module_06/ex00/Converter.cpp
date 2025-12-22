@@ -2,7 +2,11 @@
 
 static bool isChar(const std::string &s)
 {
-	return (s.length() == 1 && !isdigit(s[0]));
+	if (s.length() == 1 && !isdigit(s[0]))
+		return (true);
+	if (s.length() == 3 && s[0] == '\'' && s[2] == '\'')
+		return (true);
+	return (false);
 }
 
 static bool isInt(const std::string &s)
@@ -11,9 +15,9 @@ static bool isInt(const std::string &s)
 
 	if (s[i] == '-' || s[i] == '+')
 		i++;
-	if (i == (int)s.length())
+	if (i == static_cast<int>(s.length()))
 		return false;
-	for (; i < (int)s.length(); i++)
+	for (; i < static_cast<int>(s.length()); i++)
 	{
 		if (!isdigit(s[i]))
 			return false;
@@ -122,18 +126,29 @@ static void printDouble(double v)
 	}
 }
 
+static double toDouble(const std::string &s)
+{
+	return (std::strtod(s.c_str(), NULL));
+}
+
+
 void Converter::convert(const std::string &s)
 {
 	double value = 0.0;
 
 	if (isChar(s))
-		value = static_cast<double>(s[0]);
+	{
+		if (s.length() == 3 && s[0] == '\'' && s[2] == '\'')
+			value = static_cast<double>(s[1]);
+		else
+			value = static_cast<double>(s[0]);
+	}
 	else if (isInt(s))
 		value = static_cast<double>(std::atoi(s.c_str()));
 	else if (isFloat(s))
-		value = static_cast<double>(std::atof(s.c_str()));
+		value = toDouble(s);
 	else if (isDouble(s))
-		value = static_cast<double>(std::atof(s.c_str()));
+		value = toDouble(s);
 	else
 	{
 		std::cout << "char: impossible" << std::endl;
