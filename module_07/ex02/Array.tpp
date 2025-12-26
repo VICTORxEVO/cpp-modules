@@ -22,7 +22,6 @@ Array<T>::Array(Array const &src) : _array(NULL), _size(0)
     *this = src;
 }
 
-// Destructor
 template <typename T>
 Array<T>::~Array(void)
 {
@@ -32,18 +31,18 @@ Array<T>::~Array(void)
 
 // Assignment operator - deep copy
 template <typename T>
-Array<T> &Array<T>::operator=(Array const &rhs)
+Array<T> &Array<T>::operator=(Array const &other)
 {
-    if (this != &rhs)
+    if (this != &other)
     {
         if (_array)
             delete[] _array;
-        _size = rhs._size;
+        _size = other._size;
         if (_size > 0)
         {
             _array = new T[_size]();
             for (unsigned int i = 0; i < _size; i++)
-                _array[i] = rhs._array[i];
+                _array[i] = other._array[i];
         }
         else
             _array = NULL;
@@ -51,7 +50,6 @@ Array<T> &Array<T>::operator=(Array const &rhs)
     return *this;
 }
 
-// Subscript operator (non-const) - allows modification
 template <typename T>
 T &Array<T>::operator[](unsigned int index)
 {
@@ -69,7 +67,6 @@ T const &Array<T>::operator[](unsigned int index) const
     return _array[index];
 }
 
-// Size getter
 template <typename T>
 unsigned int Array<T>::size(void) const
 {
