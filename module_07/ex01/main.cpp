@@ -9,21 +9,18 @@ void print(T const &elem)
     std::cout << elem << " ";
 }
 
-// Double the value (non-const - modifies element)
 template <typename T>
 void doubleValue(T &elem)
 {
     elem *= 2;
 }
 
-// Increment value
 template <typename T>
 void increment(T &elem)
 {
     elem += 1;
 }
 
-// To uppercase (for strings)
 void toUpper(std::string &str)
 {
     for (size_t i = 0; i < str.length(); i++)
