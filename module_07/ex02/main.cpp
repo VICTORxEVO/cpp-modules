@@ -74,9 +74,9 @@ int main(void)
     // String array
     std::cout << "\n--- String Array ---" << std::endl;
     Array<std::string> strings(3);
-    strings[0] = "Hello";
-    strings[1] = "42";
-    strings[2] = "World";
+    strings[0] ="Yōkoso";
+    strings[1] = "misutā";
+    strings[2] = "inpuerā";
     printArray(strings, "strings");
 
     // Test out of bounds exception
@@ -100,21 +100,6 @@ int main(void)
     {
         std::cout << "Exception caught: " << e.what() << std::endl;
     }
-
-    // Subject's complex test
-    std::cout << "\n===== SUBJECT TEST =====" << std::endl;
-    Array<int> numbers2(MAX_VAL);
-    int *mirror = new int[MAX_VAL];
-
-    srand(time(NULL));
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        int const value = rand();
-        numbers2[i] = value;
-        mirror[i] = value;
-    }
-
-    delete[] mirror;
 
     return 0;
 }
