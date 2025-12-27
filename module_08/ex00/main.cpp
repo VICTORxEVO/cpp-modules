@@ -36,11 +36,11 @@ int	main(void)
 
 	std::cout << std::endl << "=== Testing with std::list ===" << std::endl;
 	std::list<int>	lst;
-	lst. push_back(10);
-	lst. push_back(20);
-	lst. push_back(30);
-	lst. push_back(40);
-	lst. push_back(50);
+	lst.push_back(10);
+	lst.push_back(20);
+	lst.push_back(30);
+	lst.push_back(40);
+	lst.push_back(50);
 
 	try
 	{
@@ -64,7 +64,7 @@ int	main(void)
 
 	std::cout << std::endl << "=== Testing with std::deque ===" << std::endl;
 	std::deque<int>	deq;
-	deq. push_back(5);
+	deq.push_back(5);
 	deq.push_back(10);
 	deq.push_back(15);
 
