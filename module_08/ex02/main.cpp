@@ -3,7 +3,7 @@
 #include "MutantStack.hpp"
 
 // Test from the PDF
-void	testPDF(void)
+void	testsubject(void)
 {
 	std::cout << "=== PDF Test (MutantStack) ===" << std::endl;
 
@@ -38,43 +38,6 @@ void	testPDF(void)
 	std::cout << std::endl;
 
 	std::stack<int> s(mstack);
-	std::cout << std::endl;
-}
-
-// Same test with std::list for comparison
-void	testList(void)
-{
-	std::cout << "=== PDF Test (std::list) ===" << std::endl;
-
-	std::list<int> lst;
-
-	lst.push_back(5);
-	lst.push_back(17);
-
-	std::cout << "Top: " << lst.back() << std::endl;
-
-	lst.pop_back();
-
-	std::cout << "Size: " << lst.size() << std::endl;
-
-	lst.push_back(3);
-	lst.push_back(5);
-	lst.push_back(737);
-	lst.push_back(0);
-
-	std::list<int>::iterator it = lst.begin();
-	std::list<int>::iterator ite = lst.end();
-
-	++it;
-	--it;
-
-	std::cout << "Elements: ";
-	while (it != ite)
-	{
-		std::cout << *it << " ";
-		++it;
-	}
-	std::cout << std::endl;
 	std::cout << std::endl;
 }
 
@@ -267,8 +230,7 @@ void	testStackOperations(void)
 
 int	main(void)
 {
-	testPDF();
-	testList();
+	testsubject();
 	testReverseIterator();
 	testConstIterator();
 	testCopyAndAssignment();
