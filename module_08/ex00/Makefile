@@ -13,7 +13,7 @@ SRC_DIR = .
 INC= -I includes
 
 # Source and Object Files
-SRC = $(wildcard $(SRC_DIR)/*.cpp)
+SRC = ./main.cpp
 OBJ = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
 
 # Debugging
