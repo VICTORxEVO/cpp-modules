@@ -18,9 +18,7 @@ template <typename T>
 MutantStack<T> &MutantStack<T>::operator=(const MutantStack &rhs)
 {
 	if (this != &rhs)
-	{
 		std::stack<T>::operator=(rhs);
-	}
 	return (*this);
 }
 
