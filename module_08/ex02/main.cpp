@@ -5,7 +5,7 @@
 // Test from the subject
 void	testsubject(void)
 {
-	std::cout << "=== PDF Test (MutantStack) ===" << std::endl;
+	std::cout << "=== subject Test (MutantStack) ===" << std::endl;
 
 	MutantStack<int> mstack;
 
