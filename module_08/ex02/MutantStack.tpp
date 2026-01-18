@@ -1,19 +1,16 @@
 #ifndef MUTANTSTACK_TPP
 # define MUTANTSTACK_TPP
 
-// Default constructor
 template <typename T>
 MutantStack<T>::MutantStack() : std::stack<T>()
 {
 }
 
-// Copy constructor
 template <typename T>
 MutantStack<T>::MutantStack(const MutantStack &src) : std::stack<T>(src)
 {
 }
 
-// Assignment operator
 template <typename T>
 MutantStack<T> &MutantStack<T>::operator=(const MutantStack &rhs)
 {
@@ -22,13 +19,11 @@ MutantStack<T> &MutantStack<T>::operator=(const MutantStack &rhs)
 	return (*this);
 }
 
-// Destructor
 template <typename T>
 MutantStack<T>::~MutantStack(void)
 {
 }
 
-// Iterator functions - using 'c' which is the protected underlying container
 template <typename T>
 typename MutantStack<T>::iterator MutantStack<T>::begin(void)
 {

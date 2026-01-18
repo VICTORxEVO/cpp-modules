@@ -6,7 +6,7 @@
 #include "Span.hpp"
 
 // Test from the PDF
-void	testPDF(void)
+void	test_subject(void)
 {
 	std::cout << "=== PDF Test ===" << std::endl;
 
@@ -183,7 +183,7 @@ void	testCopyAndAssignment(void)
 
 int	main(void)
 {
-	testPDF();
+	test_subject();
 	testExceptions();
 	testLargeSpan();
 	testVeryLargeSpan();

@@ -2,7 +2,7 @@
 #include <list>
 #include "MutantStack.hpp"
 
-// Test from the PDF
+// Test from the subject
 void	testsubject(void)
 {
 	std::cout << "=== PDF Test (MutantStack) ===" << std::endl;
@@ -147,7 +147,7 @@ void	testDifferentTypes(void)
 	// String stack
 	MutantStack<std::string> strStack;
 	strStack.push("Hello");
-	strStack.push("World");
+	strStack.push("conan");
 	strStack.push("!");
 
 	std::cout << "String stack: ";

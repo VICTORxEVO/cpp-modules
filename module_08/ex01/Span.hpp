@@ -13,14 +13,13 @@ class Span
 		std::vector<int>	_numbers;
 
 	public:
-		// Orthodox Canonical Form
+
 		Span(void);
 		Span(unsigned int n);
 		Span(const Span &src);
 		Span &operator=(const Span &rhs);
 		~Span(void);
 
-		// Member functions
 		void	addNumber(int number);
 		int		shortestSpan(void) const;
 		int		longestSpan(void) const;
@@ -28,12 +27,10 @@ class Span
 		template <typename Iterator>
 		void	addRange(Iterator begin, Iterator end);
 
-		// Getters
 		unsigned int				getMaxSize(void) const;
 		const std::vector<int>&		getNumbers(void) const;
 };
 
-// Template implementation must be in header
 template <typename Iterator>
 void	Span::addRange(Iterator begin, Iterator end)
 {

@@ -8,19 +8,16 @@ template <typename T>
 class MutantStack : public std::stack<T>
 {
 	public:
-		// Orthodox Canonical Form
 		MutantStack(void);
 		MutantStack(const MutantStack &src);
 		MutantStack &operator=(const MutantStack &rhs);
 		~MutantStack(void);
 
-		// Iterator types - accessing the underlying container's iterators
 		typedef typename std::stack<T>::container_type::iterator				iterator;
 		typedef typename std::stack<T>::container_type::const_iterator			const_iterator;
 		typedef typename std::stack<T>::container_type::reverse_iterator		reverse_iterator;
 		typedef typename std::stack<T>::container_type::const_reverse_iterator	const_reverse_iterator;
 
-		// Iterator functions
 		iterator				begin(void);
 		iterator				end(void);
 		const_iterator			begin(void) const;
