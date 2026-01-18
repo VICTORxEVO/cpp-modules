@@ -8,9 +8,9 @@
 // Test from the PDF
 void	test_subject(void)
 {
-	std::cout << "=== PDF Test ===" << std::endl;
+	std::cout << "=== subject Test ===" << std::endl;
 
-	Span sp = Span(5);
+	Span sp(5);
 	sp.addNumber(6);
 	sp.addNumber(3);
 	sp.addNumber(17);

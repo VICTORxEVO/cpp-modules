@@ -7,12 +7,13 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Directories
 OBJ_DIR = objects
+SRC_DIR = .
 
 #include
 INC= -I includes
 
 # Source and Object Files
-SRC = ./main.cpp
+SRC = ./main.cpp ./Span.cpp
 OBJ = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
 
 # Debugging
