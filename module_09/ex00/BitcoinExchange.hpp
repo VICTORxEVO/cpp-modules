@@ -13,7 +13,7 @@
 class BitcoinExchange
 {
 private:
-    std:: map<std::string, float> _database;
+    std::map<std::string, float> _database;
 
     bool isValidDate(const std::string &date);
     bool isValidValue(const std::string &valueStr, float &value);

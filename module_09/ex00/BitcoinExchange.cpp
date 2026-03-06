@@ -33,7 +33,7 @@ bool BitcoinExchange::loadDatabase(const std::string &filename)
         return false;
 
     std::string line;
-    std::getline(file, line); // Skip header line
+    std::getline(file, line);
 
     while (std::getline(file, line))
     {
@@ -140,11 +140,10 @@ void BitcoinExchange:: processInput(const std::string &filename)
     }
 
     std::string line;
-    std::getline(file, line); // Skip header line
+    std::getline(file, line);
 
     while (std::getline(file, line))
     {
-        // Check format
         size_t pos = line.find('|');
         if (pos == std:: string::npos)
         {
