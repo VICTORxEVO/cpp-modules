@@ -45,7 +45,12 @@ void    Rpn::compute(const std::string &s)
     std::vector<std::string> tokens;
     intmax_t val1, val2;
 
+    _stack = std::stack<intmax_t>();
     tokens = tokinize(s);
+
+    if (tokens.empty())
+        throw std::runtime_error("Error");
+
     for (std::size_t i = 0; i < tokens.size(); i++)
     {
         if (tokens[i].size() == 1)
@@ -54,11 +59,8 @@ void    Rpn::compute(const std::string &s)
                 _stack.push(tokens[i][0] - '0');
             else if (tokens[i][0] == '+' || tokens[i][0] == '-' || tokens[i][0] == '*' || tokens[i][0] == '/')
             {
-                if (_stack.empty() || _stack.size() == 1)
-                {
-                    _stack.push(0);
-                    return ;
-                }
+                if (_stack.size() < 2)
+                    throw std::runtime_error("Error");
                 val2 = _stack.top(); _stack.pop();
                 val1 = _stack.top(); _stack.pop();
                 if (tokens[i][0] == '+')
@@ -69,18 +71,23 @@ void    Rpn::compute(const std::string &s)
                     _stack.push(val1 * val2);
                 else if (tokens[i][0] == '/')
                 {
-                    if (val1 != 0)
+                    if (val2 != 0)
                         _stack.push(val1 / val2);
                     else
-                        throw std::runtime_error("Error: devition by 0");
+                        throw std::runtime_error("Error: division by zero");
                 }
                 else
                     throw std::runtime_error("Error");
             }
+            else
+                throw std::runtime_error("Error");
         }
         else
             throw std::runtime_error("Error");
     }
+
+    if (_stack.size() != 1)
+        throw std::runtime_error("Error");
 
 }
 
