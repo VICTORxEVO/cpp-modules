@@ -10,9 +10,7 @@ int main(int ac, char *av[])
     try
     {
         Rpn stack(av[1]);
-        std::cout << "res -> " << stack << std::endl;
-        stack.compute(av[1]);
-        std::cout << "res using methode -> " << stack << std::endl;
+        std::cout << stack << std::endl;
     }
     catch (std::exception &e)
     {
