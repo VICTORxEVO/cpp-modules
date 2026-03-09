@@ -197,13 +197,11 @@ std::vector<size_t> PmergeMe::generateJacobsthal(size_t n)
     return createJacobsthal(n);
 }
 
-// Binary search for insertion point (vector)
 int PmergeMe::binarySearchVector(const std:: vector<int> &arr, int item, int left, int right)
 {
     return binarySearch(arr, item, left, right);
 }
 
-// Simple insertion sort for small ranges (vector)
 void PmergeMe::insertionSortVector(std:: vector<int> &arr, int left, int right)
 {
     insertionSort(arr, left, right);
@@ -250,20 +248,16 @@ void PmergeMe::sortWithDeque()
 void PmergeMe::displayBefore()
 {
     std::cout << "Before:  ";
-    for (size_t i = 0; i < _inputVector.size() && i < 5; i++)
+    for (size_t i = 0; i < _inputVector.size(); i++)
         std::cout << _inputVector[i] << " ";
-    if (_inputVector.size() > 5)
-        std::cout << "[...]";
     std::cout << std::endl;
 }
 
 void PmergeMe::displayAfter()
 {
     std::cout << "After:   ";
-    for (size_t i = 0; i < _sortedVector.size() && i < 5; i++)
+    for (size_t i = 0; i < _sortedVector.size(); i++)
         std::cout << _sortedVector[i] << " ";
-    if (_sortedVector.size() > 5)
-        std::cout << "[...]";
     std::cout << std::endl;
 }
 
