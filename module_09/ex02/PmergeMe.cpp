@@ -1,7 +1,42 @@
 #include "PmergeMe.hpp"
+#include <iterator>
 
 namespace
 {
+    template <typename Container>
+    typename Container::const_iterator iteratorAt(const Container &arr, size_t index)
+    {
+        typename Container::const_iterator it = arr.begin();
+        std::advance(it, static_cast<long>(index));
+        return it;
+    }
+
+    template <typename Container>
+    typename Container::iterator iteratorAt(Container &arr, size_t index)
+    {
+        typename Container::iterator it = arr.begin();
+        std::advance(it, static_cast<long>(index));
+        return it;
+    }
+
+    template <typename Container>
+    int valueAt(const Container &arr, size_t index)
+    {
+        return *iteratorAt(arr, index);
+    }
+
+    template <typename Container>
+    void setValueAt(Container &arr, size_t index, int value)
+    {
+        *iteratorAt(arr, index) = value;
+    }
+
+    template <typename Container>
+    void insertAt(Container &arr, size_t index, int value)
+    {
+        arr.insert(iteratorAt(arr, index), value);
+    }
+
     std::vector<size_t> createJacobsthal(size_t n)
     {
         std::vector<size_t> jacobsthal;
@@ -27,9 +62,11 @@ namespace
         {
             int mid = left + (right - left) / 2;
 
-            if (arr[mid] == item)
+            int midValue = valueAt(arr, static_cast<size_t>(mid));
+
+            if (midValue == item)
                 return mid;
-            else if (arr[mid] < item)
+            else if (midValue < item)
                 left = mid + 1;
             else
                 right = mid - 1;
@@ -42,15 +79,15 @@ namespace
     {
         for (int i = left + 1; i <= right; i++)
         {
-            int key = arr[i];
+            int key = valueAt(arr, static_cast<size_t>(i));
             int j = i - 1;
 
-            while (j >= left && arr[j] > key)
+            while (j >= left && valueAt(arr, static_cast<size_t>(j)) > key)
             {
-                arr[j + 1] = arr[j];
+                setValueAt(arr, static_cast<size_t>(j + 1), valueAt(arr, static_cast<size_t>(j)));
                 j--;
             }
-            arr[j + 1] = key;
+            setValueAt(arr, static_cast<size_t>(j + 1), key);
         }
     }
 
@@ -70,14 +107,17 @@ namespace
 
         std::vector<std::pair<int, int> > pairs;
         bool hasStraggler = (n % 2 != 0);
-        int straggler = hasStraggler ? arr[n - 1] : 0;
+        int straggler = hasStraggler ? valueAt(arr, n - 1) : 0;
 
         for (size_t i = 0; i < n - (hasStraggler ? 1 : 0); i += 2)
         {
-            if (arr[i] > arr[i + 1])
-                pairs.push_back(std::make_pair(arr[i], arr[i + 1]));
+            int first = valueAt(arr, i);
+            int second = valueAt(arr, i + 1);
+
+            if (first > second)
+                pairs.push_back(std::make_pair(first, second));
             else
-                pairs.push_back(std::make_pair(arr[i + 1], arr[i]));
+                pairs.push_back(std::make_pair(second, first));
         }
 
         Container mainChain;
@@ -88,31 +128,33 @@ namespace
 
         Container result;
         if (!mainChain.empty())
-            result.push_back(mainChain[0]);
+            result.push_back(valueAt(mainChain, 0));
 
             
         std::vector<bool> inserted(pairs.size(), false);
 
         for (size_t i = 0; i < mainChain.size(); i++)
         {
+            int currentMain = valueAt(mainChain, i);
+
             for (size_t j = 0; j < pairs.size(); j++)
             {
-                if (pairs[j].first == mainChain[i] && !inserted[j])
+                if (pairs[j].first == currentMain && !inserted[j])
                 {
                     int pos = binarySearch(result, pairs[j].second, 0, static_cast<int>(result.size()) - 1);
-                    result.insert(result.begin() + pos, pairs[j].second);
+                    insertAt(result, static_cast<size_t>(pos), pairs[j].second);
                     inserted[j] = true;
                     break;
                 }
             }
             if (i < mainChain.size() - 1)
-                result.push_back(mainChain[i + 1]);
+                result.push_back(valueAt(mainChain, i + 1));
         }
 
         if (hasStraggler)
         {
             int pos = binarySearch(result, straggler, 0, static_cast<int>(result.size()) - 1);
-            result.insert(result.begin() + pos, straggler);
+            insertAt(result, static_cast<size_t>(pos), straggler);
         }
 
         arr = result;
@@ -120,16 +162,19 @@ namespace
 }
 
 
-PmergeMe:: PmergeMe() : _vectorTime(0), _dequeTime(0) {}
+PmergeMe:: PmergeMe() : _vectorTime(0), _dequeTime(0), _listTime(0) {}
 
 PmergeMe::PmergeMe(const PmergeMe &other)
 {
     _inputVector = other._inputVector;
     _inputDeque = other._inputDeque;
+    _inputList = other._inputList;
     _sortedVector = other._sortedVector;
     _sortedDeque = other._sortedDeque;
+    _sortedList = other._sortedList;
     _vectorTime = other._vectorTime;
     _dequeTime = other._dequeTime;
+    _listTime = other._listTime;
 }
 
 PmergeMe &PmergeMe::operator=(const PmergeMe &other)
@@ -138,10 +183,13 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &other)
     {
         _inputVector = other._inputVector;
         _inputDeque = other._inputDeque;
+        _inputList = other._inputList;
         _sortedVector = other._sortedVector;
         _sortedDeque = other._sortedDeque;
+        _sortedList = other._sortedList;
         _vectorTime = other._vectorTime;
         _dequeTime = other._dequeTime;
+        _listTime = other._listTime;
     }
     return *this;
 }
@@ -179,6 +227,7 @@ bool PmergeMe::parseInput(int argc, char **argv)
         int num = std::atoi(str.c_str());
         _inputVector.push_back(num);
         _inputDeque.push_back(num);
+        _inputList.push_back(num);
     }
     
     return true;
@@ -227,6 +276,11 @@ void PmergeMe::fordJohnsonDeque(std::deque<int> &arr)
     fordJohnsonTmplt(arr);
 }
 
+void PmergeMe::fordJohnsonList(std::list<int> &arr)
+{
+    fordJohnsonTmplt(arr);
+}
+
 void PmergeMe::sortWithVector()
 {
     _sortedVector = _inputVector;
@@ -243,6 +297,15 @@ void PmergeMe::sortWithDeque()
     fordJohnsonDeque(_sortedDeque);
     double end = getTime();
     _dequeTime = end - start;
+}
+
+void PmergeMe::sortWithList()
+{
+    _sortedList = _inputList;
+    double start = getTime();
+    fordJohnsonList(_sortedList);
+    double end = getTime();
+    _listTime = end - start;
 }
 
 void PmergeMe::displayBefore()
@@ -267,4 +330,6 @@ void PmergeMe::displayTiming()
               << " elements with std::vector :  " << _vectorTime << " us" << std::endl;
     std::cout << "Time to process a range of " << _inputDeque.size()
               << " elements with std::deque :  " << _dequeTime << " us" << std::endl;
+    std::cout << "Time to process a range of " << _inputList.size()
+              << " elements with std::list :  " << _listTime << " us" << std::endl;
 }

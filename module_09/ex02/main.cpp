@@ -20,6 +20,7 @@ int main(int argc, char **argv)
 
     sorter.sortWithVector();
     sorter.sortWithDeque();
+    sorter.sortWithList();
 
     sorter.displayAfter();
 
